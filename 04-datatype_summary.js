@@ -50,6 +50,67 @@ let mySet = new Set(); // Set
 
 
 // Feature	               |             Primitive Data Types	                  |         Non-Primitive Data Types
-// Storage	               |            Stored directly in memory	              |         Stored as references (heap memory)
-// Mutability	           |           Immutable (values cannot be changed)	      |         Mutable (values can be modified)
-// Copy Behavior	       |          Copied by value	                          |         Copied by reference
+// Storage	               |             Stored directly in memory	              |         Stored as references (heap memory)
+// Mutability	           |             Immutable (values cannot be changed)	  |         Mutable (values can be modified)
+// Copy Behavior	       |             Copied by value	                      |         Copied by reference
+
+
+
+
+// ------------------------------------ MEMORY ALLOCATION --------------------------------
+
+
+// Stack Memory Example (Primitives)
+let a = 10;  // Stored in stack
+let b = a;   // A copy of 'a' is created in stack
+b = 20;
+console.log(a); // Output: 10 (original remains unchanged)
+console.log(b); // Output: 20
+
+// Heap Memory Example (Reference Types)
+let obj1 = { name: "John" }; // Object stored in heap, reference stored in stack
+let obj2 = obj1;  // 'obj2' stores reference to same heap memory
+obj2.name = "Doe"; // Modifying 'obj2' also modifies 'obj1'
+
+console.log(obj1.name); // Output: "Doe"
+console.log(obj2.name); // Output: "Doe"
+
+
+
+
+
+// ? Definition:
+
+// * Stack memory is used for storing primitive values and function execution contexts.
+
+// * Heap memory is used for storing objects and reference types.
+
+// ? Speed:
+
+// * Stack memory is faster because it follows a Last In, First Out (LIFO) structure.
+
+// * Heap memory is slower as it requires dynamic allocation and garbage collection.
+
+// ? Storage:
+
+// * Primitive data types like Number, String, Boolean, null, undefined, BigInt, and Symbol are stored in the stack.
+
+// * Objects, arrays, and functions are stored in the heap, while their references are stored in the stack.
+
+// ? Access:
+
+// * Stack variables are accessed directly, making them efficient.
+
+// * Heap variables are accessed through references, which makes operations slightly slower.
+
+// ? Mutability:
+
+// * Primitive values in the stack are copied when assigned to a new variable, so modifying one does not affect the other.
+
+// * Objects in the heap are referenced, meaning multiple variables can point to the same object, and modifying one affects all references.
+
+// ? Memory Management:
+
+// * The stack automatically clears unused values once the function execution is completed.
+
+// * The heap requires garbage collection to remove unused objects, which can cause performance overhead.
