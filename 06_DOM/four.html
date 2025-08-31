@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit DOM</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <ul class="language">
+      <li>JavaScript</li>
+    </ul>
+  </body>
+  <script>
+    function add_launguage(langName) {
+      const list_item = document.createElement("li");
+      list_item.innerHTML = `${langName}`;
+      document.querySelector(".language").appendChild(list_item);
+    }
+    add_launguage("Python");
+    add_launguage("Node");
+
+    function add_optimise_manner(langName) {
+      const list_item = document.createElement("li");
+      list_item.appendChild(document.createTextNode(langName));
+      document.querySelector(".language").appendChild(list_item);
+    }
+
+    add_optimise_manner("GoLang");
+
+    // * Edit
+
+    const second_language = document.querySelector("li:nth-child(2)");
+    const new_li = document.createElement("li");
+    new_li.textContent = "JAVA";
+    second_language.replaceWith(new_li);
+
+    const first_language = document.querySelector("li:nth-child(1)");
+    first_language.outerHTML = "<li> TypeScript </li>";
+
+    // * Remove
+
+    const last_language = document.querySelector("li:last-child");
+    last_language.remove()
+  </script>
+</html>
