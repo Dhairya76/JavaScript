@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Async APIs</h1>
+    <button id="stop">Stop</button>
+  </body>
+  <script>
+    const time_out = function () {
+      console.log("Timeout");
+    };
+
+    const change_text = function () {
+      document.querySelector("h1").innerHTML = "Timeout & Interval";
+    };
+    const change_title = setTimeout(change_text, 2000);
+
+    document.getElementById("stop").addEventListener("click", function () {
+      clearTimeout(change_title);
+      console.log("STOPPED");
+    });
+  </script>
+</html>
